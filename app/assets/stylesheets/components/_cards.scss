@@ -1,0 +1,20 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.card {
+  p {
+    font-size: 10px;
+  }
+
+  .card-text {
+    font-style: italic;
+  }
+
+  .card-img-top {
+      height: 12vw;
+      object-fit: cover;
+  }
+}
