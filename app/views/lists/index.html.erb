@@ -2,5 +2,27 @@
 <%= link_to 'Create a list', new_list_path %>
 
 <h1><% @lists.each do |list| %></h1>
+<%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
 <li><%= link_to list.name, list_path(list) %></li>
 <% end  %>
+
+<div class="container">
+  <div class="cards">
+    <% @lists.each do |list| %>
+      <div class="card" style="width: 18rem">
+          <div class="card-body">
+          <% cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
+            <h5 class="card-title"><%= bookmark.movie.title %></h5>
+            <h5 class="card-title"><%= bookmark.movie.rating %></h5>
+            <p class="card-text"><%= bookmark.movie.overview %></p>
+            <p class="card-text"><%= bookmark.comment%></p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <%= link_to "Remove",
+                      bookmark_path(bookmark),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } %>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>
