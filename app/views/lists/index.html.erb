@@ -1,28 +1,22 @@
-<h1>My Movie Lists</h1>
-<%= link_to 'Create a list', new_list_path %>
+<div class="hero-image">
+  <div class="hero-text">
+    <h1>My Movie Lists</h1>
+    <p>Pick a film</p>
+    <%= link_to 'Create a list', new_list_path, {:style=> "btn btn-primary"} %>
+  </div>
+</div>
 
-<h1><% @lists.each do |list| %></h1>
-<%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
-<li><%= link_to list.name, list_path(list) %></li>
-<% end  %>
 
-<div class="container">
-  <div class="cards">
+
+<div class="card-group">
     <% @lists.each do |list| %>
-      <div class="card" style="width: 18rem">
-          <div class="card-body">
-          <% cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
-            <h5 class="card-title"><%= bookmark.movie.title %></h5>
-            <h5 class="card-title"><%= bookmark.movie.rating %></h5>
-            <p class="card-text"><%= bookmark.movie.overview %></p>
-            <p class="card-text"><%= bookmark.comment%></p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-            <%= link_to "Remove",
-                      bookmark_path(bookmark),
-                      method: :delete,
-                      data: { confirm: "Are you sure?" } %>
-          </div>
-      </div>
-    <% end %>
+  <div class="card" style="width: 9rem">
+      <%= cl_image_tag(list.photo.key, style: "width: 100%; height: 100%") %>
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to list.name, list_path(list) %></h5>
+      <%= link_to "<i class='fa-solid fa-trash-can'></i>".html_safe, list_path(list), method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
+  </div>
+  <% end  %>
   </div>
 </div>
