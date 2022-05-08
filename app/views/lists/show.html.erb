@@ -1,4 +1,11 @@
 <h1><%= @list.name %></h1>
+
+<div class="hero-image">
+  <div class="hero-text">
+    <h1>My Movie Lists</h1>
+    <p>Pick a film</p>
+  </div>
+</div>
 <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
 
 <div class="container">

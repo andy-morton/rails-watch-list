@@ -3,18 +3,3 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
 }
-
-.card {
-
-  p {
-    font-size: 10px;
-  }
-
-  .card-text {
-    font-style: italic;
-  }
-
-  .card-img-top {
-      object-fit: cover;
-  }
-}
